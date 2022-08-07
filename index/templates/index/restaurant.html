@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Advisor</title>
+    <script src="{% static 'index/asset/js/main.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index/asset/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/css/style_carte.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/tripadvisor-icons/style.css' %}">
+    <style>
+    
+
+</style>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <i class="icon-menu_bars"></i>
+                <a href="{% url 'home' %}"><img src="" alt="Service Advisor logo"></a>
+                <form action="nearby_false" method="get" class="d-block d-flex">
+                    <div>
+                      
+                        <input type="text" id="search" name="item-name">
+                        <input type="submit" value='Search'>
+                       
+                    </div>
+                 </form>
+    
+            </div>
+        {% if user.is_authenticated %}
+        <nav>
+            <a href="profile" ><div><i class="icon-notification_bell" style='font-size:22px'></i><span href="favourite" style='font-size:22px'>Profil</span></div></a>
+             <a href="favourite" style='margin-left:20px;'><div><i class="icon-heart" style='font-size:22px'></i><span style='font-size:22px'>Favoris</span></div></a>
+             <a href="{% url 'logout' %}"><button class = "connexion">Déconnexion</button></a>
+         </nav>
+        {% else %}
+        <nav>
+            <a href="{% url 'login' %}"><button class = "connexion">Connectez-vous</button></a>
+        </nav>
+        {% endif %}
+    </header>
+    <main>
+        <div class="informations container">
+            <h1><span>Explorer</span> le Monde</h1>
+
+            <!-- Navigation menu -->
+            <nav class="navigation-menu">
+                <a href="{% url 'hotel' %}"><div ><span >Hôtels </span><i class="icon-bed"></i></div></a>
+                <a href="{% url 'attraction' %}"><div><span>Activités</span><i class="icon-ticket"></i></div></a>
+                <a href="{% url 'restaurant' %}"><div><span>Restaurants</span><i class="icon-restaurant"></i></div></a>
+            </nav>
+        </div>
+       
+    
+        <section class="section2">
+            <div class=" container">
+                <div class="title">
+                    <div></div>
+                    <h2>Près de chez vous</h2>
+                    <div></div>
+                </div>
+                {% for s in liste_services %}
+                {% if s.Type_Service == "restaurant" %}
+                <a href="{% url 'service' s.id %}">  
+                <div class="Carte">
+                    <div class="partImg img1" style="
+                    margin: 0;
+                    max-width: 100%;
+                    max-height: 100%;
+                    height: 80%;
+                    width: 100%;
+                    background: url('{{ s.thumbail }}');
+                    background-size: cover;
+                    background-position: top;
+                    position: relative;
+                    border-bottom: 1px solid rgba(0,0,0,0.1);
+                    border-bottom-right-radius: 5px;
+                    border-bottom-left-radius: 5px;">
+                        <div class="filtreBleu">
+                            <div class="btnReveal">Plus d'info</div>
+                        </div>
+                    </div>
+                    <div class="Titre" .>
+                        <h2 class="titreCarte">
+                            {{s.Nom_Service}}
+                        </h2>
+                    </div> </a>
+                    <div class = "TypeService">
+                        <h3 class = "titreCarteAfter">
+                            {{s.Type_Service}}
+                        </h3>          
+                        <a href="{% url 'wishlist' s.id %}" role="button" aria-disabled="true" > <i class="icon-heart" id="h" style="font-size:30px;margin-left:20px;"></i></a> 
+                    </div>
+                </div>
+               
+                {% endif %}
+                {% endfor %}
+    </main>
+    <footer>
+        <div class="container">
+            <div class ="bloc-footer">
+                <div id="footer-logo">
+                    <img src="{% static 'index/asset/img/mini-logo-trip.svg' %}" alt="logo tripadvisor">
+                </div>
+                <div>
+                    <p>© 2022 Service Advisor LLC Tous droits réservés.</p>
+                    <p>Made at <a href="https://www.emsi.ma/" target="_blank">EMSI</a> by EL HADDAD Anas & LOUZAR Mehdi</a></p>
+                </div>
+            </div>
+            <p>Cette version de notre site internet est réalisée dans le cadre de notre projet de fin d'année qui a pour objet la réalisation d'une plateforme de réferencement des services les plus proches.</p>
+        </div>
+    </footer>
+    
+    <form method = "POST" action = "{% url 'restaurant_localisation' %}"  id="formid" >
+        {% csrf_token %}
+        <input type="hidden" name="longitude" id="lo"/>
+         <input type="hidden" name="latitude" id="la"/>
+    </form>
+</body>
+
+</html>

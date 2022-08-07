@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Advisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index/asset/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/css/style_diaporama.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/tripadvisor-icons/style.css' %}">
+    <script src="{% static 'index/asset/js/diaporama.js' %}"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+</head>
+
+<body>
+    {% for i in images %}
+    {% if i.nbr == 1 %}
+    <input style="visibility: hidden;" id = "Latitude" type="text" value= "{{ i.Latitude_Service }}" />
+    <input style="visibility: hidden;" id = "Longitude" type="text" value= "{{ i.Longitude_Service }}" />
+    {% endif %}
+    {% endfor %}
+    <header>
+        <div class="container">
+            <div>
+                <i class="icon-menu_bars"></i>
+                <a href="{% url 'home' %}"><img src="" alt="Service Advisor logo"></a>
+                
+    
+            </div>
+        {% if user.is_authenticated %}
+        <nav>
+            <a href="profile" ><div><i class="icon-notification_bell" style='font-size:22px'></i><span href="favourite" style='font-size:22px'>Profil</span></div></a>
+             <a href="favourite" style='margin-left:20px;'><div><i class="icon-heart" style='font-size:22px'></i><span style='font-size:22px'>Favoris</span></div></a>
+             <a href="{% url 'logout' %}"><button class = "connexion">Déconnexion</button></a>
+         </nav>
+            {% else %}
+            <nav>
+                <a href="{% url 'login' %}"><button class = "connexion">Connectez-vous</button></a>
+            </nav>
+            {% endif %}
+    </header>
+    <main>
+        <div class="informations container">
+            <h1><span>Explorer</span> le Monde</h1>
+
+            <!-- Navigation menu -->
+            <nav class="navigation-menu">
+                <a href="{% url 'hotel' %}"><div ><span >Hôtels </span><i class="icon-bed"></i></div></a>
+                <a href="{% url 'attraction' %}"><div><span>Activités</span><i class="icon-ticket"></i></div></a>
+                <a href="{% url 'restaurant' %}"><div><span>Restaurants</span><i class="icon-restaurant"></i></div></a>
+            </nav>
+        </div>
+        <section class="section2">
+            <div class=" container">
+                <div class="title">
+                    <div></div>
+                    {% for i in images %} 
+                    {% if i.nbr == 1  %}
+                    <h2>{{ i.Nom_Service }}</h2>
+                    {% endif %}
+                    {% endfor %}
+                    <div></div>
+                </div>
+                <div class="diapo">
+                        <div class="cadre_diapo">
+                        <div class="interieur_diapo">
+                            {% for i in images %}
+                            {% if i.nbr == 1 %}
+                            <div class=description>
+                                <img class="main_img" src="{{ i.Web_adresse_Img }}" alt = "grande_image">
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <ul class="navigation_diapo">
+                            {% for i in images %}
+                            <li>
+                                <img class = "mini_img" src="{{ i.Web_adresse_Img }}" alt = "{{ i.nbr }}" >
+                            </li>
+                            {% endfor %}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="title">
+                    <div></div>
+                    <h2>Position sur la carte</h2>
+                    <div></div>
+                </div>
+                <div id = "map" style="height: 600px; width: 1280px;"></div>
+                {% for i in images %} 
+                {% if i.nbr == 1  %}
+                <script>
+                    let la = Number(document.querySelector("#Latitude").value);
+                    let lo = Number(document.querySelector("#Longitude").value);
+                    var map = L.map('map').setView([la, lo],100);
+                    L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}@2x.png?key=8YaI8hijfDZGXXK2Syww',{
+                        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                    }).addTo(map);
+                    var marker = L.marker([la, lo]).addTo(map).bindPopup("{{ i.Nom_Service }}")
+                    .openPopup();
+                </script>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class ="bloc-footer">
+                <div id="footer-logo">
+                    <img src="{% static 'index/asset/img/mini-logo-trip.svg' %}" alt="logo tripadvisor">
+                </div>
+                <div>
+                    <p>© 2022 Service Advisor LLC Tous droits réservés.</p>
+                    <p>Made at <a href="https://www.emsi.ma/" target="_blank">EMSI</a> by EL HADDAD Anas & LOUZAR Mehdi</a></p>
+                </div>
+            </div>
+            <p>Cette version de notre site internet est réalisée dans le cadre de notre projet de fin d'année qui a pour objet la réalisation d'une plateforme de réferencement des services les plus proches.</p>
+        </div>
+    </footer>
+   
+</body>
+
+</html>

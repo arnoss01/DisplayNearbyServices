@@ -1,0 +1,927 @@
+:root {
+    --red: #ff5d5d;
+    --green: #04aa6c;
+    --light-font: #333333;
+    --hover: #545454;
+    --light-border: #e2e2e2;
+    --bcg-circle: #f2f2f2;
+    --bcg: #f9f1ec;
+}
+
+/* ________________
+  || GLOBAL RULES ||
+   ---------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Trip Sans";
+    font-size: 16px;
+}
+
+h1 {
+    font-family: "Trip Sans Ultra";
+    font-size: 54px;
+}
+
+h2 {
+    font-family: "Trip Sans Med";
+}
+
+h3 {
+    font-family: "Trip Sans";
+}
+
+h2,
+h3 {
+    font-size: 32px;
+}
+
+.container {
+    max-width: 1280px;
+    /* padding: 0 24px; */
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* ________________
+  ||    HEADER    ||
+   ---------------- */
+header {
+    background-color: #fff;
+    position: sticky;
+    z-index: 2;
+    top: 0;
+}
+
+header>.container {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-border {
+    border-bottom: 1px solid var(--light-border);
+}
+
+/* left header */
+header img {
+    width: 188px;
+    margin-right: 28px;
+}
+
+header>.container>div {
+    width: 562px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header>.container>div>i:first-child {
+    display: none;
+}
+
+header>.container>div input {
+    font-size: 16px;
+    font-family: "Trip Sans";
+    height: 42px;
+    width: auto;
+    border: solid var(--light-border) 2px;
+    border-radius: 10px;
+    padding-left: 41px;
+}
+
+header>.container>div>div {
+    position: relative;
+}
+
+header>.container>div>div i {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 21px;
+}
+
+header>.container>div input:focus {
+    outline: none;
+    border: 2px solid var(--light-border);
+    padding-left: 40px;
+}
+
+/* right header */
+nav {
+    font-family: "Trip Sans Med";
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav>div {
+    border: white solid 2px;
+    border-radius: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 38px;
+    padding: 0 10px;
+}
+
+nav>div>i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.connexion {
+    margin-left: 12px;
+    background-color: black;
+    font-family: "Trip Sans";
+    font-size: 16px;
+
+    color: white;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    height: 37px;
+}
+
+nav>div:hover {
+    border: var(--hover) solid 2px;
+    color: var(--hover);
+    cursor: pointer;
+}
+
+nav>div:hover span {
+    text-decoration: underline;
+}
+
+nav>button:hover {
+    text-decoration: underline;
+    background-color: var(--light-font);
+}
+
+/* ________________
+  ||     MAIN    ||
+   ---------------- */
+h1 {
+    margin-top: 30px;
+}
+
+main {
+    display: block;
+}
+
+main>div>h1 span {
+    color: var(--red);
+}
+
+/* navigation menu */
+.navigation-menu {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.navigation-menu div {
+    color: black;
+    border: black 1px solid;
+    padding: 20px 140px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-radius: 12px;
+    flex: 1;
+    height: 65px;
+}
+
+.navigation-menu div:not(:last-child) {
+    margin-right: 16px;
+}
+
+main>div>nav div:hover {
+    color: white;
+    border: black 2px solid;
+    background-color: black;
+}
+
+main>div>nav div:hover>span {
+    text-decoration: none;
+}
+
+main>div>nav div:last-child {
+    margin: 0;
+}
+
+/* Album */
+.pictures {
+    display: flex;
+    height: 430px;
+    margin-bottom: 25px;
+}
+
+.col-1 {
+    height: 100%;
+    flex: 1;
+    margin-right: 2px;
+    position: relative;
+}
+
+.col-1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+}
+
+.col-2 {
+    height: 100%;
+    width: 480px;
+}
+
+.col-2 img {
+    width: 100%;
+    height: calc(50% - 1.5px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.col-2 img:first-child {
+    border-top-right-radius: 13px;
+}
+
+.col-2 img:last-child {
+    border-bottom-right-radius: 13px;
+}
+
+.pictures button {
+    height: 30px;
+    width: 130px;
+    color: white;
+    font-size: 12px;
+    background-color: rgb(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.pictures i {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.pictures img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* line */
+.line {
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    font-size: 12px;
+}
+
+.line>div:first-child>span:nth-child(even) {
+    margin: 0 6px;
+}
+
+.line i {
+    margin-left: 6px;
+}
+
+.line>div:first-child>span a {
+    text-decoration: none;
+    color: #333;
+}
+
+.line>div:first-child>span:not(:last-child) a:hover {
+    text-decoration: underline;
+}
+
+.line>div:first-child>span:last-child:hover>a span:first-child {
+    text-decoration: underline;
+}
+
+.line>div:first-child>span:last-child:hover>a span {
+    cursor: pointer;
+}
+
+.icon-arrow_drop_down-24px {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* desciption */
+.description {
+    display: flex;
+    justify-content: flex-start;
+    height: 425px;
+    margin-bottom: 75px;
+}
+
+.description .col-1 {
+    height: 100%;
+    width: 50%;
+}
+
+.description .col-2 {
+    height: 100%;
+    width: 525px;
+    margin-left: 84px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.description .col-1 p {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 20px;
+    line-height: 24px;
+    color: #333333;
+    /* width: 625px; */
+    height: 143px;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.description .col-2 div:first-child {
+    background-color: var(--red);
+    color: black;
+    height: 235px;
+    padding: 32px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+.description .col-2 div:last-child {
+    background-image: url(../img/informations/map.png);
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.description .col-2 p {
+    margin: 25px 0 20px 0;
+    font-size: 16px;
+}
+
+.description button {
+    width: 155px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 15px;
+    position: absolute;
+    bottom: 30px;
+}
+
+.col-2 button:hover {
+    background-color: var(--hover);
+}
+
+/* _______________________________________
+  ||    section 1: conseil de voyages     ||
+   --------------------------------------*/
+.section1 {
+    margin-bottom: 70px;
+}
+
+.title {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title>div {
+    border-bottom: 1px solid black;
+    flex: 1;
+}
+
+.title h2 {
+    margin: 0 15px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-all {
+    size: 10px;
+    line-height: 13px;
+    letter-spacing: 0;
+    margin-bottom: 30px;
+    color: black;
+    text-decoration: none;
+}
+
+.display-all:hover {
+    text-decoration: underline;
+    color: rgb(94, 91, 91);
+}
+
+.end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.option {
+    min-width: calc(100% / 4- (60px / 4));
+    height: 100%;
+    border: solid 3px var(--light-border);
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.option:not(:last-child) {
+    margin-right: 20px;
+}
+
+.option:hover {
+    border: solid 3px black;
+    text-decoration: underline;
+}
+
+.option img {
+    height: 70px;
+    margin-right: 10px;
+}
+
+/* ______________________________________
+  ||    section : immanquable à paris     ||
+   ------------------------------------- */
+.section3 {
+    margin-bottom: 70px;
+}
+
+.carrousel-block {
+    margin-top: 40px;
+    margin-bottom: 70px;
+    display: flex;
+}
+
+.carrousel-block>.text {
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: calc(100% / 3);
+}
+
+.text p {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.carrousel {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.card {
+    width: calc(100% / 3 - (40px / 3));
+    border: var(--light-red) solid 2px;
+    flex-shrink: 0;
+    /* NÉCESSAIRE POUR NE PAS COMPRESSER LES ITEMS */
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.card:not(:last-child) {
+    margin-right: 20px;
+}
+
+/* POUR MASQUER LA SCROLLBAR */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.card img {
+    width: 100%;
+    height: 205px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card>span,
+.card>div>span:last-child {
+    font-size: 14px;
+    color: var(--btn-grey);
+}
+
+h4 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: "Trip Sans Med";
+}
+
+.circle {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.circle:hover {
+    background-color: var(--bcg-circle);
+    color: var(--green);
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.minicircle {
+    color: var(--green);
+    font-size: 14px;
+}
+
+.card img:hover {
+    background: #0000ff;
+    opacity: 0.8;
+}
+
+/* ________________
+  ||    FOOTER     ||
+   ---------------- */
+footer {
+    margin-top: 50px;
+    height: 155px;
+    background-color: var(--bcg);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bloc-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#footer-logo img {
+    height: 40px;
+    width: 40px;
+    margin-right: 15px;
+}
+
+footer p {
+    font-size: 12px;
+    color: var(--light-font);
+    line-height: 14.4px;
+    margin-top: 5px;
+}
+
+footer a {
+    font-family: "Trip Sans Med";
+    color: var(--light-font);
+}
+
+footer a:hover {
+    color: var(--hover);
+}
+
+main>div>nav div:nth-child(7) {
+    display: none;
+}
+
+/* ________________
+  || MEDIA QUERY  ||
+   ---------------- */
+@media (max-width: 1328px) {
+    .container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    /* navigation menu */
+
+    .navigation-menu {
+        
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .navigation-menu>div {
+        padding: 100px;
+        align-items: center;
+        min-width: calc((100% / 3) - (48px / 3));
+        height: max-content;
+    }
+
+    .navigation-menu>div span {
+        flex-wrap: nowrap;
+    }
+
+    .navigation-menu>div:nth-child(3n) {
+        margin-right: 0px;
+    }
+
+    .navigation-menu>div:nth-child(3),
+    .navigation-menu>div:nth-child(2),
+    .navigation-menu>div:nth-child(1) {
+        padding: 20px 150px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* header */
+    header div>nav>div span {
+        display: none;
+    }
+
+    header div>nav>div i {
+        margin-right: 0;
+    }
+
+    /* main nav */
+    .navigation-menu>div:nth-child(4),
+    .navigation-menu>div:nth-child(3),
+    .navigation-menu>div:nth-child(2),
+    .navigation-menu>div:nth-child(1) {
+        padding: 13px 14px;
+        height: 65px;
+        align-items: flex-start;
+    }
+
+    /* main > description */
+
+    .description {
+        display: block;
+        height: 100%;
+        margin-bottom: 75px;
+    }
+
+    .description .col-1 {
+        height: 30%;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .description .col-2 {
+        height: 295px;
+        width: 100%;
+        margin-left: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .description .col-2 div:first-child {
+        width: 50%;
+        height: 295px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px;
+    }
+
+    .description .col-2 div:last-child {
+        width: 50%;
+        height: 295px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px;
+    }
+
+    /* section 2 */
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .options div:not(:nth-child(2n)),
+    .options div:nth-last-child(3) {
+        margin-right: 0px;
+    }
+
+    .options div {
+        min-width: calc(100% / 2- (48px / 2));
+    }
+
+    /* .options div:not(:nth-child(2n)) {
+        margin-right: 16px;
+    } */
+
+    /* immanquable à paris */
+    .carrousel-block {
+        flex-direction: column;
+    }
+
+    .text h3,
+    .text p {
+        width: 80vw;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 820px) {
+    header .container {
+        width: 95%;
+    }
+
+    header div>nav {
+        display: none;
+    }
+
+    header div>div>input {
+        display: none;
+    }
+
+    header>.container>div {
+        width: 100%;
+    }
+
+    .icon-search1 {
+        position: initial !important;
+        font-size: 21px;
+    }
+
+    .icon-menu_bars {
+        display: flex !important;
+        font-size: 21px;
+    }
+
+    header img {
+        width: 132px;
+        margin-right: 0;
+    }
+
+    .pictures .col-2 {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navigation-menu {
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow: hidden;
+        overflow-x: scroll;
+        flex: content;
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
+
+    .navigation-menu>div {
+        align-items: center !important;
+        justify-content: space-between;
+        min-width: 150px;
+    }
+
+    .navigation-menu>div span {
+        margin-right: 20px;
+    }
+
+    .navigation-menu>div:nth-child(1) {
+        margin-bottom: 0px;
+    }
+
+    /* album */
+    .pictures {
+        left: 0;
+        width: 100vw;
+        height: 50vh;
+        position: absolute;
+        margin: 0;
+    }
+
+    .pictures .col-1 img {
+        border-radius: 0px;
+        padding: 0;
+    }
+
+    .pictures button {
+        background-color: black;
+    }
+
+    .line {
+        display: none;
+    }
+
+    /* desciption */
+    .description {
+        margin-top: 57vh;
+        background-color: red;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .description .col-2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .description .col-1 {
+        margin-bottom: 25px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .col-2 {
+        height: 50%;
+        width: 100%;
+    }
+
+    .col-2 img {
+        width: 100%;
+        height: 100%;
+    }
+
+    h1 {
+        margin-top: 15px;
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .text h3 {
+        font-size: 24px;
+    }
+
+    .text p {
+        font-size: 18px;
+    }
+
+    /* conseil de voyage */
+    .option {
+        min-width: calc(100% / 4- (60px / 4));
+        height: 100%;
+        border: solid 3px var(--light-border);
+        border-radius: 10px;
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        margin: 10px;
+        padding: 0 20px;
+        align-items: center;
+    }
+
+    .option:last-child {
+        margin-right: 0;
+    }
+
+    .options span {
+        font-size: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .display-all {
+        font-size: 14px;
+    }
+}

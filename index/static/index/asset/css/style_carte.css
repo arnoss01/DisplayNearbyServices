@@ -1,0 +1,88 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+.Carte {
+    background: #ffffff;
+    width: 550px;
+    height: 550px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
+    display: inline-block;
+    margin: 40px 40px;
+}
+
+.partImg {
+    max-width: 100%;
+    max-height: 100%;
+    height: 70%;
+    width: 100%;
+    background: url("..//img/Photos/image_1.png");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.filtreBleu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: background 0.4 ease;
+}
+
+.filtreBleu:hover {
+    cursor: pointer;
+    background: rgba(118,176,194,0.5);
+}
+
+.btnReveal {
+    width: 100px;
+    height: 40px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(118,176,194);
+    position: absolute;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transform: opacity 0.2s ease;
+}
+
+.filtreBleu:hover .btnReveal {
+    opacity : 1;
+}
+
+.Titre {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+}
+
+.titreCarte {
+    display: flex;
+    align-items: center;
+    margin : 0;
+    width: 80%;
+    font-size: 25px;
+    position: relative;
+}
+
+
+
+.TypeService {
+    font-weight: 60;
+    font-size: 8px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    text-align: justify;
+}

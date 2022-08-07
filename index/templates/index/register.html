@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Advisor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index/asset/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/css/style_carte.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/tripadvisor-icons/style.css' %}">
+    <link rel="stylesheet" href="{% static 'index/asset/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+   <!----> <link rel="stylesheet" href="{% static 'index/asset/css/style1.css' %}">
+   <script src="{% static 'index/asset/vendor/jquery/jquery.min.js' %}"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <i class="icon-menu_bars"></i>
+                <a href="{% url 'home' %}"><img src="" alt="Service Advisor logo"></a>
+                
+    
+            </div>
+    
+            <nav>
+                <a href="{% url 'login' %}"><button class = "connexion">Connectez-vous</button></a>
+            </nav>
+    
+        </div>
+    </header>
+
+    <main>
+      <section class="section2">
+          <div class=" container">
+              
+
+              <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    <form method="POST" class="register-form" id="register-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            Username
+                            {{form.username}}
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            Email
+                            {{form.email}}
+
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            Password
+                            {{form.password1}}
+                        </div>
+                        <div class="form-group">
+                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            Confirm Password
+                            {{form.password2}}
+                        </div>
+                       
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="{% static 'index/asset/img/signup-image.jpg' %}" alt="sing up image"></figure>
+                    <a href="{% url 'login' %}" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+            </div>
+    </section>
+    </div>
+    {{form.errors}}
+    </main>   
+    <footer>
+        <div class="container1">
+            <div class ="bloc-footer">
+                <div id="footer-logo">
+                    <img src="{% static 'index/asset/img/mini-logo-trip.svg' %}" alt="logo tripadvisor">
+                </div>
+                <div>
+                    <p>© 2022 Service Advisor LLC Tous droits réservés.</p>
+                    <p>Made at <a href="https://www.emsi.ma/" target="_blank">EMSI</a> by EL HADDAD Anas & LOUZAR Mehdi</a></p>
+                </div>
+            </div>
+            <p>Cette version de notre site internet est réalisée dans le cadre de notre projet de fin d'année qui a pour objet la réalisation d'une plateforme de réferencement des services les plus proches.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

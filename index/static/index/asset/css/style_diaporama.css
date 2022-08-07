@@ -1,0 +1,77 @@
+
+
+.diapo{box-sizing:border-box}
+
+img{
+	max-width: 100%;
+}
+
+/*pour le saut de page, on cree une class que l'on met en display:none*/
+.target{
+	display: none
+}
+
+
+/* englobe le slider */
+.cadre_diapo{
+	max-width: 600px;
+	margin: 2rem auto;
+	overflow: hidden;
+}
+
+.interieur_diapo{
+	align-items: center;
+	display: flex;
+	width: 400%;
+	transition: transform .6s ease-in-out
+}
+
+.description{
+	position: relative;
+}
+
+.description span{
+	position: absolute;
+	left: 0;
+	top: 2%;
+	font-size: 75%;
+	display: flex;
+	padding: .5rem;
+	justify-content: center;
+	color: white;
+	background: hsla(0,0%,0%,.35)
+}
+
+/*navigation avec images miniatures*/
+.navigation_diapo{
+	/*permet d'aligner les photos les unes à la suite des autres, on peut aussi utiliser le positionnement absolu*/	
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0
+}
+
+.navigation_diapo li {
+	padding: .25rem;
+}
+
+.navigation_diapo img{
+	border: 3px solid white;
+	box-shadow:0 0 5px hsla(0,0%,0%,.4);
+}
+	
+@media (min-width:31.25rem){
+	.description span{
+		font-size: initial
+	}
+}
+
+iframe {
+    border: 1px solid black;
+    height: 800px;
+  	width: 1280px;
+}
+
+.output {
+    background: #eee;
+}

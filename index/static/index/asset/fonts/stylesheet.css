@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "Trip Sans Med";
+    src: url("TripSans-Medium.eot");
+    src: url("TripSans-Medium.eot?#iefix") format("embedded-opentype"),
+        url("TripSans-Medium.woff2") format("woff2"),
+        url("TripSans-Medium.woff") format("woff"),
+        url("TripSans-Medium.ttf") format("truetype"),
+        url("TripSans-Medium.svg#TripSans-Medium") format("svg");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Trip Sans";
+    src: url("TripSans-Regular.eot");
+    src: url("TripSans-Regular.eot?#iefix") format("embedded-opentype"),
+        url("TripSans-Regular.woff2") format("woff2"),
+        url("TripSans-Regular.woff") format("woff"),
+        url("TripSans-Regular.ttf") format("truetype"),
+        url("TripSans-Regular.svg#TripSans-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BwModelica-Bold";
+    src: url("BwModelica-Bold.eot");
+    src: url("BwModelica-Bold.eot?#iefix") format("embedded-opentype"),
+        url("BwModelica-Bold.woff2") format("woff2"),
+        url("BwModelica-Bold.woff") format("woff"),
+        url("BwModelica-Bold.ttf") format("truetype"),
+        url("BwModelica-Bold.svg#BwModelica-Bold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Trip Sans Ultra";
+    src: url("TripSans-Ultra.eot");
+    src: url("TripSans-Ultra.eot?#iefix") format("embedded-opentype"),
+        url("TripSans-Ultra.woff2") format("woff2"),
+        url("TripSans-Ultra.woff") format("woff"),
+        url("TripSans-Ultra.ttf") format("truetype"),
+        url("TripSans-Ultra.svg#TripSans-Ultra") format("svg");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
